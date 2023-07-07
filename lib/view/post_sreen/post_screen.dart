@@ -3,15 +3,17 @@ import 'package:get/get.dart';
 import 'package:getx_practice/res/constant/app_string.dart';
 import 'package:getx_practice/utils/routes/routes_name.dart';
 
-class SearchScreen extends GetView<SearchController> {
-  const SearchScreen({super.key});
+class PostScreen extends StatelessWidget {
+  const PostScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(AppString.searchScreen),
         centerTitle: true,
+        title: Text(
+          AppString.postScreen,
+        ),
       ),
       body: Center(
         child: Column(
@@ -19,23 +21,21 @@ class SearchScreen extends GetView<SearchController> {
           children: [
             ElevatedButton(
               onPressed: () {
-                Get.back();
+                Get.offNamed(RoutesName.homeScreen);
               },
               child: Text(
                 "Back To Home Screen",
               ),
             ),
-            SizedBox(height: 15),
+            SizedBox(
+              height: 15,
+            ),
             ElevatedButton(
               onPressed: () {
-                Get.offNamed(RoutesName.postScreen);
+                Get.offNamed(RoutesName.searchScreen);
               },
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Replace Screen",
-                  textAlign: TextAlign.center,
-                ),
+              child: Text(
+                "Back To Search Screen",
               ),
             ),
           ],
