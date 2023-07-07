@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_practice/res/constant/app_string.dart';
+import 'package:getx_practice/utils/routes/routes_name.dart';
 import 'package:getx_practice/view/home_screen/home_controller.dart';
 
 class HomeScreen extends GetView<HomeController> {
@@ -25,6 +26,14 @@ class HomeScreen extends GetView<HomeController> {
                 style: const TextStyle(fontSize: 20),
               );
             }),
+            ElevatedButton(
+              onPressed: () {
+                Get.toNamed(RoutesName.searchScreen);
+              },
+              child: Text(
+                AppString.searchScreen,
+              ),
+            ),
           ],
         ),
       ),
