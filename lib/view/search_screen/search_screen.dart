@@ -21,17 +21,17 @@ class SearchScreen extends GetView<SearchController> {
               onPressed: () {
                 Get.back();
               },
-              child: Text(
+              child: const Text(
                 "Back To Home Screen",
               ),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             ElevatedButton(
               onPressed: () {
                 Get.offNamed(RoutesName.postScreen);
               },
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: Text(
                   "Replace Screen",
                   textAlign: TextAlign.center,

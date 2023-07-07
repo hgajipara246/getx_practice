@@ -11,7 +11,7 @@ class PostScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
+        title: const Text(
           AppString.postScreen,
         ),
       ),
@@ -23,18 +23,18 @@ class PostScreen extends StatelessWidget {
               onPressed: () {
                 Get.offNamed(RoutesName.homeScreen);
               },
-              child: Text(
+              child: const Text(
                 "Back To Home Screen",
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             ElevatedButton(
               onPressed: () {
                 Get.offNamed(RoutesName.searchScreen);
               },
-              child: Text(
+              child: const Text(
                 "Back To Search Screen",
               ),
             ),

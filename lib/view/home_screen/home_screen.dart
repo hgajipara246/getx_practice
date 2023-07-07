@@ -30,7 +30,7 @@ class HomeScreen extends GetView<HomeController> {
               onPressed: () {
                 Get.toNamed(RoutesName.searchScreen);
               },
-              child: Text(
+              child: const Text(
                 AppString.searchScreen,
               ),
             ),

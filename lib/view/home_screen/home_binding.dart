@@ -6,6 +6,5 @@ class HomeBinding implements Bindings {
   void dependencies() {
     // TODO: implement dependencies
     Get.put<HomeController>(HomeController());
-    ;
   }
 }
