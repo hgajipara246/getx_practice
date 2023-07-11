@@ -20,19 +20,48 @@ class HomeScreen extends GetView<HomeController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Obx(() {
-              return Text(
-                "Count : ${controller.count}",
-                style: const TextStyle(fontSize: 20),
-              );
-            }),
-            ElevatedButton(
-              onPressed: () {
-                Get.toNamed(RoutesName.searchScreen);
+            // Obx(() {
+            //   return Text(
+            //     "Count : ${controller.count}",
+            //     style: const TextStyle(fontSize: 20),
+            //   );
+            // }),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     Get.toNamed(RoutesName.searchScreen);
+            //   },
+            //   child: const Text(
+            //     AppString.searchScreen,
+            //   ),
+            // ),
+            GetBuilder<HomeController>(
+              init: Get.put(HomeController()), // Add Get.put to pass the RoomController instance
+              builder: (controller) {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    DropdownButton<String>(
+                      value: controller.selectedRoom.value,
+                      onChanged: (String? newValue) {
+                        controller.selectedRoom.value = newValue!;
+                      },
+                      items: <String>['Room 1', 'Room 2', 'Room 3', 'Room 4'].map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                    ),
+                    SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: () {
+                        Get.toNamed(RoutesName.searchScreen, arguments: controller.selectedRoom.value);
+                      },
+                      child: Text('Submit'),
+                    ),
+                  ],
+                );
               },
-              child: const Text(
-                AppString.searchScreen,
-              ),
             ),
           ],
         ),
