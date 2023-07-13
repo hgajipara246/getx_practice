@@ -5,7 +5,7 @@ import 'package:getx_practice/utils/routes/routes_name.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SearchScreen extends GetView<SearchController> {
-  const SearchScreen({super.key});
+  const SearchScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +16,8 @@ class SearchScreen extends GetView<SearchController> {
 
     void saveFormDataToPreferences() async {
       final prefs = await SharedPreferences.getInstance();
-      final adultsData = adultsController.text ?? '';
-      final childrenData = childrenController.text ?? '';
+      final adultsData = adultsController.text;
+      final childrenData = childrenController.text;
 
       await prefs.setString('adultsData', adultsData);
       await prefs.setString('childrenData', childrenData);
@@ -54,9 +54,10 @@ class SearchScreen extends GetView<SearchController> {
               ),
             ),
             Text(
-              'Selected Room: ${selectedRoom ?? ""}',
+              'Selected Room: $selectedRoom',
               style: const TextStyle(fontSize: 20),
             ),
+            const SizedBox(height: 15),
             const SizedBox(height: 15),
             TextField(
               controller: adultsController,
